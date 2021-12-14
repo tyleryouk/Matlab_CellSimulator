@@ -1,0 +1,27 @@
+
+M = evolution(StartingCells); %calling evolution
+
+figure
+for i=1:20
+    for j=1:20
+        %{ 
+        if StartingCells(i,j)==1 
+            scatter(j,20-i,'ko','filled'); %plotting the black dots
+            hold on 
+        end
+        %}
+        if M(i,j)==0&&StartingCells(i,j)==1 
+            scatter(j,20-i,'rx'); %plot
+            hold on 
+        %{ 
+        elseif M(i,j)==1&&StartingCells(i,j)==0
+            scatter(j,20-i,'gp','filled');
+            hold on    
+        %}
+        end        
+    end
+end
+axis([0 20 0 20]);
+set(gca,'Color','b')
+
+pause(0.5);
